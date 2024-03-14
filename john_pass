@@ -1,0 +1,3 @@
+sudo unshadow /etc/passwd /etc/shadow>hashes123
+john --format=crypt hashes123
+john --show hashes123
