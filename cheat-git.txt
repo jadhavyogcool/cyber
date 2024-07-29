@@ -1,0 +1,36 @@
+
+
+# initial setup
+touch .gitignore
+git config --global user.name jadhavyogcool
+git config --global user.email jadhavyogcool@gmail.com
+
+
+#Key pair
+ssh-keygen -t rsa -b 4096 -C "youremail@example.com"
+
+nano tail <path to id_rsa.pub>
+
+
+#new master
+
+mkdir myproject
+cd myproject
+git init
+touch hi.txt
+touch .gitignore
+git status
+git add hi.txt
+git commit -m "Your message about the commit"
+git branch
+git remote add origin git@github.com:jadhavyogcool/newrepo.git
+git push origin master
+
+#for branch and merge
+
+git checkout -b my-new-branch
+nano hi.txt
+
+git branch
+
+git push origin my-new-branch
